@@ -1,5 +1,7 @@
 import React, {useEffect} from "react";
 import PropTypes from "prop-types";
+import BusinessRuleType from "../BusinessRules/BusinessRuleType";
+
 
 type ButtonAccessibilityProps ={
     accProps: {
@@ -13,10 +15,10 @@ type ButtonUiProps = {
     }
 }
 
-type ButtonProps = ButtonAccessibilityProps & ButtonUiProps
+type ButtonProps = ButtonAccessibilityProps & ButtonUiProps & BusinessRuleType;
 
 // @ts-ignore
-function UiButtonHook({accProps, uiProps}:ButtonProps) {
+function UiButtonHook({accProps, uiProps, businessRule}:ButtonProps) {
 
 
     useEffect(() => {
@@ -30,7 +32,8 @@ function UiButtonHook({accProps, uiProps}:ButtonProps) {
 
 UiButtonHook.propTypes = {
     accProps: PropTypes.object.isRequired,
-    uiProps: PropTypes.object.isRequired
+    uiProps: PropTypes.object.isRequired,
+    businessRule: PropTypes.object.isRequired
 }
 export default UiButtonHook;
 
