@@ -1,9 +1,10 @@
 type BusinessRuleType = {
-    businessRule: {
-        logicalOperator:string,
-        filedNames: string[]
-    }
+    businessRules: businessRule[]
 }
 
+type businessRule = {
+    logicalOperator:string,
+    filedNames: string[]
+}
 
 export default BusinessRuleType

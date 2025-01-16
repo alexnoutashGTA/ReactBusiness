@@ -7,7 +7,7 @@ import BusinessRuleType from "./BusinessRules/BusinessRuleType";
 const App =  () => {
   return <div>
     <div>
-      <UiButtonHook accProps={{name: "n1"}} uiProps={{text: "t1"}}   businessRule={{logicalOperator:"And", filedNames:[]}}></UiButtonHook>
+      <UiButtonHook accProps={{name: "n1"}} uiProps={{text: "t1"}} businessRules={[{logicalOperator:"And", filedNames:[]}]}></UiButtonHook>
     </div>;
   </div>
 

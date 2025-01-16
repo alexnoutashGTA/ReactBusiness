@@ -18,7 +18,7 @@ type ButtonUiProps = {
 type ButtonProps = ButtonAccessibilityProps & ButtonUiProps & BusinessRuleType;
 
 // @ts-ignore
-function UiButtonHook({accProps, uiProps, businessRule}:ButtonProps) {
+function UiButtonHook({accProps, uiProps, businessRules}:ButtonProps) {
 
 
     useEffect(() => {
@@ -33,7 +33,7 @@ function UiButtonHook({accProps, uiProps, businessRule}:ButtonProps) {
 UiButtonHook.propTypes = {
     accProps: PropTypes.object.isRequired,
     uiProps: PropTypes.object.isRequired,
-    businessRule: PropTypes.object.isRequired
+    businessRules: PropTypes.object.isRequired
 }
 export default UiButtonHook;
 
