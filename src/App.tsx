@@ -13,13 +13,15 @@ const theme = {
     hover: "#ad1457",
   },
 };
+
+
+const bizRule =[{logicalOperator:"And", filedNames:["firstName", "lastName"]}];
 const App =  () => {
   return <div>
     <div>
-      <UiButtonHook accProps={{name: "n1"}} uiProps={{text: "t1", theme:theme}} businessRules={[{logicalOperator:"And", filedNames:[]}]}></UiButtonHook>
+      <UiButtonHook accProps={{name: "n1"}} uiProps={{text: "t1", theme:theme}} businessRules={bizRule}></UiButtonHook>
     </div>;
   </div>
-
 };
 
 export default App;

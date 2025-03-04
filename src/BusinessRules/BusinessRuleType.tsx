@@ -2,7 +2,7 @@ type BusinessRuleType = {
     businessRules: businessRule[]
 }
 
-type businessRule = {
+export type businessRule = {
     logicalOperator:string,
     filedNames: string[]
 }
