@@ -1,10 +1,12 @@
 type BusinessRuleType = {
     businessRules: businessRule[]
-}
+};
+
+export type fieldNameType = [string,boolean][];
 
 export type businessRule = {
     logicalOperator:string,
-    filedNames: string[]
-}
+    filedNames: fieldNameType
+};
 
 export default BusinessRuleType

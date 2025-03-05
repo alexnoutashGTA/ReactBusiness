@@ -2,14 +2,21 @@ import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import BusinessRuleType from "../BusinessRules/BusinessRuleType";
 import styled from "styled-components";
+import {businessRuleParser} from "../BusinessRules/BusinessRuleEngine";
 
-
+// UI Components access all accessibility parameters as props
+// This approach leads developers to provide accessibility parameter
+// One parameter is included in this type as an example
 type ButtonAccessibilityProps ={
     accProps: {
         name: string
     }
 }
 
+// UI Components access all content parameters as props
+// This approach leads developers to provide content parameter as parameter, perhaps retrived
+// from a CMS (contentful etc.)
+// One parameter and a theme is included in this type as an example
 type ButtonUiProps = {
     uiProps: {
         text: string,
@@ -17,11 +24,13 @@ type ButtonUiProps = {
     }
 }
 
+// Overall props include business rules needed for forms as well
 type ButtonProps = ButtonAccessibilityProps & ButtonUiProps & BusinessRuleType;
 
 // @ts-ignore
 function UiButtonHook({accProps, uiProps, businessRules}:ButtonProps) {
 
+    const enabled = businessRuleParser(businessRules);
 
     useEffect(() => {
 
@@ -48,10 +57,11 @@ function UiButtonHook({accProps, uiProps, businessRules}:ButtonProps) {
   &:disabled {
     cursor: default;
     opacity: 0.7;
-  }
-`;
+    background-color: ${theme.disabled};
+  }`;
     return (
-        <Button name={accProps.name}>{uiProps.text}</Button>
+       enabled? <Button  name={accProps.name}>{uiProps.text}</Button>:
+           <Button disabled name={accProps.name}>{uiProps.text}</Button>
     )
 }
 
